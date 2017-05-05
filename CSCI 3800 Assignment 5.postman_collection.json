@@ -1,0 +1,213 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CSCI 3800 Assignment 5",
+		"_postman_id": "c72ba736-b880-28b0-e482-f82819ce9b2c",
+		"description": "For web api hw5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Call to Base",
+			"request": {
+				"url": "http://clockworklegacy-test.apigee.net/project5",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Call Database",
+			"request": {
+				"url": "http://clockworklegacy-test.apigee.net/project5/movies",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post Movie",
+			"request": {
+				"url": "http://clockworklegacy-test.apigee.net/project5/movies",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"New Movie\",\n\t\"releasedate\" : \"TBA\",\n    \"actor\" : [\n        \"Actor 1\",\n        \"Actor 2\",\n        \"Actor 3\"\n      ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm Movie Added",
+			"request": {
+				"url": "http://clockworklegacy-test.apigee.net/project5/movies/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"ElOHEL\",\n\t\"releasedate\" : \"12-25-2000\",\n    \"actor\" : [\n        \"Jesus\",\n        \"Adam\",\n        \"Dank Lord\"\n      ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Movie",
+			"request": {
+				"url": "http://clockworklegacy-test.apigee.net/project5/movies/New Movie",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Invalid Movie",
+			"request": {
+				"url": "http://clockworklegacy-test.apigee.net/project5/DOESNOTEXIST",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Nice\",\n\t\"releasedate\" : \"12-25-2000\",\n    \"actor\" : [\n        \"Jesus\",\n        \"Adam\",\n        \"Dank Lord\"\n      ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reviews",
+			"request": {
+				"url": "http://clockworklegacy-test.apigee.net/project5/movies/Evil Dead?reviews=true",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Nice\",\n\t\"releasedate\" : \"12-25-2000\",\n    \"actor\" : [\n        \"Jesus\",\n        \"Adam\",\n        \"Dank Lord\"\n      ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reviews (False Tag)",
+			"request": {
+				"url": "http://clockworklegacy-test.apigee.net/project5/movies/Evil Dead?reviews=false",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Nice\",\n\t\"releasedate\" : \"12-25-2000\",\n    \"actor\" : [\n        \"Jesus\",\n        \"Adam\",\n        \"Dank Lord\"\n      ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post Incomplete Review",
+			"request": {
+				"url": "http://clockworklegacy-test.apigee.net/project5/reviews",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post Review",
+			"request": {
+				"url": "http://clockworklegacy-test.apigee.net/project5/reviews",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"movie\": \"Test Movie\",\n  \"reviewer\": \"My Review\",\n  \"score\": \"0/100\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm Reviews",
+			"request": {
+				"url": "http://clockworklegacy-test.apigee.net/project5/movies/Test Movie?reviews=true",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Nice\",\n\t\"releasedate\" : \"12-25-2000\",\n    \"actor\" : [\n        \"Jesus\",\n        \"Adam\",\n        \"Dank Lord\"\n      ]\n}"
+				},
+				"description": "GET movies request with a specific title and a valid query parameter"
+			},
+			"response": []
+		}
+	]
+}
